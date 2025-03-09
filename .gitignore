@@ -1,1 +1,31 @@
-# 「すごいHaskell たのしく学ぼう！」勉強リポジトリ
+# Haskell build artifacts
+dist/
+dist-newstyle/
+cabal.sandbox.config
+cabal-dev/
+*.prof
+*.aux
+*.hp
+*.eventlog
+
+# Stack files
+.stack-work/
+.stack/
+*.stackdump
+.stack-bin/
+
+# Cabal files
+*.cabal~
+*.hi
+*.o
+
+# Editor and OS specific files (Mac)
+*.swp
+*~
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# macOS Finder settings
+Icon?
+._*
