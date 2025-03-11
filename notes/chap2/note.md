@@ -33,4 +33,18 @@ ghci> (+) 3 4
 7
 ghci> 3 + 4
 7
+
+-- Ordクラスのインスタンスになるためには、先にEqインスタンスになる必要がある
+-- OrdクラスはEqを継承している。「=>」はクラス制約
+ghci> :info Ord
+type Ord :: * -> Constraint
+class Eq a => Ord a where
+  compare :: a -> a -> Ordering
+  (<) :: a -> a -> Bool
+  (<=) :: a -> a -> Bool
+  (>) :: a -> a -> Bool
+  (>=) :: a -> a -> Bool
+  max :: a -> a -> a
+  min :: a -> a -> a
+（省略）
 ```
