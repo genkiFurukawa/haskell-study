@@ -1,3 +1,5 @@
+import Main (reverse')
+
 applyTwice :: (a -> a) -> a -> a
 applyTwice f x = f (f x)
 
@@ -38,3 +40,7 @@ numLongChains' = length (filter isLong (map chain [1 .. 100]))
 -- ラムダ式を使ったパターン
 numLongChains'' :: Int
 numLongChains'' = length (filter (\xs -> length xs >= 15) (map chain [1 .. 100]))
+
+-- アキュムレータを使った実装れい
+product' :: (Num a) => [a] -> a
+product' = foldl (*) 1
