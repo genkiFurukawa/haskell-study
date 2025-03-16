@@ -17,3 +17,24 @@ largestDivisible :: Integer
 largestDivisible = head (filter p [100000, 99999 ..])
   where
     p x = (==) (mod x 3829) 0
+
+-- コラッツ列
+chain :: Int -> [Int]
+chain 1 = [1]
+chain n
+  | even n = n : chain (div n 2)
+  | odd n = n : chain (n * 3 + 1)
+
+-- 1から100までの数のうち、長さ15以上のコラッツ列の開始数になるものはいくつか？
+numLongChains :: Int
+numLongChains = length (filter (>= 15) (map length (map chain [1 .. 100])))
+
+-- 本の書き方
+numLongChains' :: Int
+numLongChains' = length (filter isLong (map chain [1 .. 100]))
+  where
+    isLong xs = length xs >= 15
+
+-- ラムダ式を使ったパターン
+numLongChains'' :: Int
+numLongChains'' = length (filter (\xs -> length xs >= 15) (map chain [1 .. 100]))
