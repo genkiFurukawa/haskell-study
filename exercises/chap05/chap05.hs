@@ -11,3 +11,9 @@ flip' :: (a -> b -> c) -> (b -> a -> c)
 flip' f = g
   where
     g x y = f y x
+
+-- 10万以下の数のうち、3829で割り切れるものの最大値
+largestDivisible :: Integer
+largestDivisible = head (filter p [100000, 99999 ..])
+  where
+    p x = (==) (mod x 3829) 0
