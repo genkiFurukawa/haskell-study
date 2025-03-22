@@ -14,3 +14,18 @@ digitSum = sum . map digitToInt . show
 
 firstTo :: Int -> Maybe Int
 firstTo n = find (\x -> digitSum x == n) [1 ..]
+
+phoneBook =
+  [ ("a", "111"),
+    ("b", "222")
+  ]
+
+-- ghci> :t foldr
+-- foldr :: Foldable t => (a -> b -> b) -> b -> t a -> b
+findKey :: (Eq k) => k -> [(k, v)] -> Maybe v
+findKey key xs = foldr (\(k, v) acc -> if key == k then Just v else acc) Nothing xs
+
+-- ghci> findKey "a" phoneBook
+-- Just "111"
+-- ghci> findKey "c" phoneBook
+-- Nothing
