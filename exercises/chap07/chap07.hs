@@ -25,3 +25,11 @@ baseCircle r = Circle (Point 0 0) r
 
 baseRect :: Float -> Float -> Shape
 baseRect width height = Rectangle (Point 0 0) (Point width height)
+
+data Person = Person
+  { firstName :: String,
+    lastName :: String,
+    age :: Int,
+    flavor :: String
+  }
+  deriving (Show)
