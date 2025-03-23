@@ -33,3 +33,12 @@ data Person = Person
     flavor :: String
   }
   deriving (Show)
+
+data List a = Empty | Cons a (List a) deriving (Show, Read, Eq, Ord)
+
+-- ghci> 5 `Cons` Empty
+-- Cons 5 Empty
+-- ghci> 5 `Cons` (4 `Cons` Empty)
+-- Cons 5 (Cons 4 Empty)
+-- ghci> 5 `Cons` (4 `Cons` (3 `Cons` Empty))
+-- Cons 5 (Cons 4 (Cons 3 Empty))
